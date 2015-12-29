@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-za-ihA">
+                                <rect key="frame" x="114" y="92" width="92" height="22"/>
+                                <state key="normal" title="图片在上" image="set"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9t-2m-HtX">
+                                <rect key="frame" x="62" y="152" width="92" height="22"/>
+                                <state key="normal" title="图片在左" image="set"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Iw-hW-oey">
+                                <rect key="frame" x="179" y="152" width="92" height="22"/>
+                                <state key="normal" title="图片在右" image="set"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mT-CQ-e5M">
+                                <rect key="frame" x="114" y="214" width="92" height="22"/>
+                                <state key="normal" title="图片在下" image="set"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921569999998" green="0.87058823529999996" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="d9t-2m-HtX" firstAttribute="top" secondItem="qCR-za-ihA" secondAttribute="bottom" constant="38" id="GJr-jG-IIV"/>
+                            <constraint firstItem="qCR-za-ihA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Niu-nc-Lmm"/>
+                            <constraint firstItem="7mT-CQ-e5M" firstAttribute="centerX" secondItem="qCR-za-ihA" secondAttribute="centerX" id="Q6c-XX-LJV"/>
+                            <constraint firstItem="d9t-2m-HtX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="Roa-xM-RfY"/>
+                            <constraint firstItem="7mT-CQ-e5M" firstAttribute="top" secondItem="qCR-za-ihA" secondAttribute="bottom" constant="100" id="YIz-Vn-m33"/>
+                            <constraint firstItem="qCR-za-ihA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="72" id="jgv-KR-d4r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Iw-hW-oey" secondAttribute="trailing" constant="33" id="ppR-5e-gqI"/>
+                            <constraint firstItem="3Iw-hW-oey" firstAttribute="top" secondItem="d9t-2m-HtX" secondAttribute="top" id="w5q-Db-byS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="7mT-CQ-e5M" id="m4o-t3-Tnn"/>
+                        <outlet property="leftButton" destination="d9t-2m-HtX" id="aow-yL-Ejz"/>
+                        <outlet property="rightButton" destination="3Iw-hW-oey" id="hU4-tS-Tr8"/>
+                        <outlet property="topButton" destination="qCR-za-ihA" id="ph6-nS-mRo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.86666666666667" y="319.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="set" width="20" height="20"/>
+    </resources>
+</document>
