@@ -5,6 +5,8 @@ MKButtonStyle是通过category自定义button的titleLabel和imageView的位置�
 ##	使用
 下载项目，将MKButtonCategory下的文件拖入项目里，在要使用的地方导入头文件，然后直接调用方法即可。
 
+**注意:** 如果用xib的话，必须给button的图片和按钮初始化的内容，否则会发现图片显示不出来；
+
 ## 原理
 1.	titleEdgeInsets是title相对于其上下左右的inset，跟tableView的contentInset是类似的;
 2.	**如果**只有title，那它上下左右都是相对于button的，image也是一样；
