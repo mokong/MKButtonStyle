@@ -13,6 +13,9 @@
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style
                         imageTitleSpace:(CGFloat)space
 {
+    self.backgroundColor = [UIColor blueColor];
+    self.titleLabel.backgroundColor = [UIColor blackColor];
+    
 //    self.backgroundColor = [UIColor cyanColor];
     
     /**
@@ -37,34 +40,76 @@
         labelHeight = self.titleLabel.frame.size.height;
     }
     
+    
+    CGFloat originalButtonWidth = imageWith+labelWidth;
+    CGFloat originalButtonHeight = MAX(imageHeight, labelHeight);
+    
+    CGFloat newButtonWidth = 0;
+    CGFloat newButtonHeight = 0;
+    
+    
     // 2. 声明全局的imageEdgeInsets和labelEdgeInsets
     UIEdgeInsets imageEdgeInsets = UIEdgeInsetsZero;
     UIEdgeInsets labelEdgeInsets = UIEdgeInsetsZero;
+    UIEdgeInsets contentEdgeInsets= UIEdgeInsetsZero;
     
     // 3. 根据style和space得到imageEdgeInsets和labelEdgeInsets的值
     switch (style) {
         case MKButtonEdgeInsetsStyleTop:
         {
+            newButtonWidth = MAX(imageWith, labelWidth);
+            newButtonHeight = imageWith + labelHeight + space;
+            
             imageEdgeInsets = UIEdgeInsetsMake(-labelHeight-space/2.0, 0, 0, -labelWidth);
             labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight-space/2.0, 0);
+            
+            CGFloat vertical = (newButtonHeight - originalButtonHeight - space/2.0)/2.0;
+            CGFloat horizon  = (newButtonWidth - originalButtonWidth)/2.0;
+            contentEdgeInsets = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
         }
             break;
         case MKButtonEdgeInsetsStyleLeft:
         {
+            
+            newButtonWidth = imageWith + labelWidth + space;
+            newButtonHeight = MAX(imageHeight, labelHeight);
+
             imageEdgeInsets = UIEdgeInsetsMake(0, -space/2.0, 0, space/2.0);
             labelEdgeInsets = UIEdgeInsetsMake(0, space/2.0, 0, -space/2.0);
+            
+            CGFloat vertical = (newButtonHeight - originalButtonHeight)/2.0;
+            CGFloat horizon  = (newButtonWidth - originalButtonWidth)/2.0;
+            
+            contentEdgeInsets = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
         }
             break;
         case MKButtonEdgeInsetsStyleBottom:
         {
+            newButtonWidth = MAX(imageWith, labelWidth);
+            newButtonHeight = imageHeight + labelHeight + space;
+            
             imageEdgeInsets = UIEdgeInsetsMake(0, 0, -labelHeight-space/2.0, -labelWidth);
             labelEdgeInsets = UIEdgeInsetsMake(-imageHeight-space/2.0, -imageWith, 0, 0);
+            
+            CGFloat vertical = (newButtonHeight - originalButtonHeight - space/2.0)/2.0;
+            CGFloat horizon  = (newButtonWidth - originalButtonWidth)/2.0;
+            
+            contentEdgeInsets = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
         }
             break;
         case MKButtonEdgeInsetsStyleRight:
         {
+            newButtonWidth = imageWith + labelWidth + space;
+            newButtonHeight = MAX(imageHeight, labelHeight);
+            
             imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth+space/2.0, 0, -labelWidth-space/2.0);
             labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith-space/2.0, 0, imageWith+space/2.0);
+            
+            CGFloat vertical = (newButtonHeight - originalButtonHeight)/2.0;
+            CGFloat horizon  = (newButtonWidth - originalButtonWidth)/2.0;
+            
+            contentEdgeInsets = UIEdgeInsetsMake(vertical, horizon, vertical, horizon);
+            
         }
             break;
         default:
@@ -72,8 +117,9 @@
     }
     
     // 4. 赋值
-    self.titleEdgeInsets = labelEdgeInsets;
-    self.imageEdgeInsets = imageEdgeInsets;
+    self.titleEdgeInsets    = labelEdgeInsets;
+    self.imageEdgeInsets    = imageEdgeInsets;
+    self.contentEdgeInsets  = contentEdgeInsets;
 }
 
 @end
